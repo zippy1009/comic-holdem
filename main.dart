@@ -813,7 +813,7 @@ class BotDecisionMaker {
 
     if (toCall == 0) {
       if (adjustedStrength > 0.65 && _rng.nextDouble() < 0.7) {
-        final target =
+        final int target =
             max(state.minRaiseTargetBet, (state.totalPotAmount * 0.6).toInt());
         return _buildRaiseOrCall(state, bot, target);
       }
@@ -824,7 +824,7 @@ class BotDecisionMaker {
 
     if (adjustedStrength > 0.78) {
       if (_rng.nextDouble() < 0.65 && bot.chips > toCall) {
-        final target = state.currentHighestBet +
+        final int target = state.currentHighestBet +
             max(state.lastRaiseDelta, (state.totalPotAmount * 0.75).toInt());
         return _buildRaiseOrCall(state, bot, target);
       }
